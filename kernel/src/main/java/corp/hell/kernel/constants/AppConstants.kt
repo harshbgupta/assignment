@@ -17,3 +17,5 @@ package corp.hell.kernel.constants
 // Main Module Constants
 ///////////////////////////////////////////////////////////////////////////
 const val WHATS_APP_MOBILE_NUMBER = "919457825354"
+var fileProvider = "${AppData.mPackageName}.provider"
+const val QR_KEY_PROFILE_PREFIX = "profile/"
