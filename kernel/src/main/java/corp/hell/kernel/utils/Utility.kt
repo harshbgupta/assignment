@@ -878,19 +878,19 @@ fun convertToTwoDigitsFormat(hhORmm: Int): String {
 /**
  * Get Refreshed Device Token
  */
-fun genDeviceToken() {
-    FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-        if (!task.isSuccessful) {
-            Timber.i("Fetching FCM registration token failed ${task.exception.toString()}")
-            return@OnCompleteListener
-        }
-
+fun genDeviceToken(callback: (deviceToken: String?) -> Unit) {
+    FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
         // Get new FCM registration token
-        mDeviceToken = task.result.toString()
-
-        //Log and toast
-        Timber.i("Refreshed device token -> $mDeviceToken")
-    })
+        mDeviceToken = if (task.isSuccessful) {
+            task.result.toString()
+        } else mDeviceToken
+        callback(mDeviceToken)
+    }.addOnCanceledListener { callback(mDeviceToken) }.addOnFailureListener {
+        callback(mDeviceToken)
+    }.addOnSuccessListener { token ->
+        mDeviceToken = token
+        callback(mDeviceToken)
+    }
 }
 
 /**

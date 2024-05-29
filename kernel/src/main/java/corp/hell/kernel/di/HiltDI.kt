@@ -7,7 +7,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import corp.hell.kernel.BuildConfig
 import corp.hell.kernel.constants.AppData.PREF_NAME
 import corp.hell.kernel.constants.AppData.ctx
-import corp.hell.kernel.constants.URL_BASE
+import corp.hell.kernel.constants.URL_BASE_PRI
 import corp.hell.kernel.constants.UserData.mAuthToken
 import dagger.Module
 import dagger.Provides
@@ -82,18 +82,14 @@ object NetworkingDI {
         return client.build()
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Retrofit Instances
+    ///////////////////////////////////////////////////////////////////////////
     @Provides
     @Singleton
+    @Named("retrofitPrima") //call it as -> @Named("retrofit_identifier") val retrofit: Retrofit
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl(URL_BASE).client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    @Provides
-    @Singleton
-    @Named("retrofit_identifier") //call it as -> @Named("retrofit_identifier") val retrofit: Retrofit
-    fun provideRetrofitNamed(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("DIFFERENT_BASE_URL").client(okHttpClient)
+        .baseUrl(URL_BASE_PRI).client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

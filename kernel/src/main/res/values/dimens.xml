@@ -4,7 +4,7 @@
     <dimen name="size_floating_button">@dimen/_56sdp</dimen>
     <dimen name="size_floating_sub_button">@dimen/_40sdp</dimen>
     <dimen name="size_nav_offset">@dimen/_minus16sdp</dimen>
-    <dimen name="side_margin">@dimen/_15sdp</dimen>
+    <dimen name="side_margin">@dimen/_8sdp</dimen>
 
     <!-- standard elevation-->
     <dimen name="elevation_floating_button">@dimen/_12sdp</dimen>

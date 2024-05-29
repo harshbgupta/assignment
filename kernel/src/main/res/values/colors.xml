@@ -51,7 +51,7 @@
     <color name="navBackgroundColor">#ffffff</color>
 
     <!--other color-->
-    <color name="card_background_color">@color/color_grey_300</color>
+    <color name="card_background_color">@color/color_grey_100</color>
     <color name="color_black_overlay">#66000000</color>
     <color name="color_trans_black_10">#90000000</color>
     <color name="color_trans_black_60">#66000000</color>

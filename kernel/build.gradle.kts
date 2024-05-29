@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.hiltLibrary)
     alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.navSafeArgs)
 }
 apply(from = "${rootProject.projectDir}/common.gradle")
 
@@ -24,23 +25,17 @@ android {
         create("dev") {
             dimension = "default"
             buildConfigField("String", "SERVER_NAME", "\"Development\"")
-            buildConfigField("String", "SERVER_URL", "\"https://dev-babble-api.primathontech.co.in\"")
-            buildConfigField("String", "CHAT_SOCKET_URL", "\"https://dev-chat.github.com\"")
-            buildConfigField("String", "VOIP_SOCKET_URL", "\"https://dev-call.github.com\"")
+            buildConfigField("String", "SERVER_URL_PRI", "\"https://dev-babble-api.primathontech.co.in\"")
         }
         create("qa") {
             dimension = "default"
             buildConfigField("String", "SERVER_NAME", "\"Staging\"")
             buildConfigField("String", "SERVER_URL", "\"https://qa-api.github.com\"")
-            buildConfigField("String", "CHAT_SOCKET_URL", "\"https://qa-chat.github.com\"")
-            buildConfigField("String", "VOIP_SOCKET_URL", "\"https://qa-call.github.com\"")
         }
         create("prod") {
             dimension = "default"
             buildConfigField("String", "SERVER_NAME", "\"Production\"")
             buildConfigField("String", "SERVER_URL", "\"https://prod-api.github.com\"")
-            buildConfigField("String", "CHAT_SOCKET_URL", "\"https://prod-chat.github.com\"")
-            buildConfigField("String", "VOIP_SOCKET_URL", "\"https://prod-call.github.com\"")
         }
     }
 

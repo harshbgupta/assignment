@@ -64,4 +64,6 @@
     <string name="otp_time_out">OTP Time out</string>
     <string name="answer">Answer</string>
     <string name="decline">Decline</string>
+    <string name="primathon">Primathon</string>
+    <string name="integrate_send_otp_api">Integrate Send OTP Api</string>
 </resources>
