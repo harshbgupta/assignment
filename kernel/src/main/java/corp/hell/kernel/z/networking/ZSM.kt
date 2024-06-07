@@ -21,7 +21,7 @@ object ZSM {
 
     @Provides
     @Singleton
-    fun provideService(@Named("retrofitPrima") retrofit: Retrofit): ZService {
+    fun provideService(@Named("retrofitCall") retrofit: Retrofit): ZService {
         return retrofit.create(ZService::class.java)
     }
 

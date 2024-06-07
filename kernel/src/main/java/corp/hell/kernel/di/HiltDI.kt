@@ -88,8 +88,16 @@ object NetworkingDI {
     @Provides
     @Singleton
     @Named("retrofitPrima") //call it as -> @Named("retrofit_identifier") val retrofit: Retrofit
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+    fun provideRetrofitPrima(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(URL_BASE_PRI).client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    @Provides
+    @Singleton
+    @Named("retrofitCall") //call it as -> @Named("retrofit_identifier") val retrofit: Retrofit
+    fun provideRetrofitCall(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+        .baseUrl("https://api.call.com/").client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

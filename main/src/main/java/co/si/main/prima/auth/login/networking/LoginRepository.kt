@@ -15,7 +15,6 @@ import javax.inject.Inject
  */
 class LoginRepository @Inject constructor(val api: LoginApi) : NetworkRepository() {
 
-
     suspend fun sendOtp(req: ReqSendOtp) =
         requestAPIFlow { api.sendOtp(req) }.flowOn(Dispatchers.IO)
 
